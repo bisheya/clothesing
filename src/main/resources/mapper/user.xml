@@ -3,7 +3,7 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzh.clothes.UserModule.UserMapper">
-    <select id="queryUser" resultType="com.xzh.clothes.UserModule.UserDo">
+    <select id="queryUser" resultType="UserDo">
         select * from user
         <where>
             1 = 1
@@ -16,4 +16,7 @@
         </where>
 
     </select>
+    <insert id="addUser" keyProperty="userId" useGeneratedKeys="true" parameterType="UserDo">
+        insert into user(userName,userSex,userPhone,userAddress,userPass,userContent,userMoney,userAuth,userTradePass) values(#{userName},#{userSex},#{userPhone},#{userAddress},#{userPass},#{userContent},#{userMoney},#{userAuth},#{userTradePass})
+    </insert>
 </mapper>

@@ -1,0 +1,2 @@
+数据库插入有约束，名字和电话有唯一约束，不需要查询是否存在，去捕捉 MySQLIntegrityConstraintViolationException 异常就好了。
+统一返回Message类，state状态码：1成功，0失败，data:返回的数据集合，message：提示信息（例如查询失败的时候，捕捉异常信息 在message返回字符串“手机号或用户名有重复”）

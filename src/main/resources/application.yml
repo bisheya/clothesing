@@ -21,3 +21,14 @@ spring:
     password: Shen123..
     driver-class-name: com.mysql.jdbc.Driver
     # 使用druid数据源
+
+#  pagehelper.helper-dialect=MYSQL
+#  3 pagehelper.reasonable=true
+#  4 pagehelper.support-methods-arguments=true
+#  5 pagehelper.params=count=countSql
+
+pagehelper:
+  helper-dialect: MYSQL
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countsql

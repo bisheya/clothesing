@@ -20,6 +20,7 @@ public class UserDo  implements Serializable {
     private BigDecimal userMoney;
     private String userAuth;
     private String userTradePass;
+    private String userContent;
 
     @Override
     public String toString() {
@@ -33,7 +34,16 @@ public class UserDo  implements Serializable {
                 ", userMoney=" + userMoney +
                 ", userAuth='" + userAuth + '\'' +
                 ", userTradePass='" + userTradePass + '\'' +
+                ", userContent='" + userContent + '\'' +
                 '}';
+    }
+
+    public String getUserContent() {
+        return userContent;
+    }
+
+    public void setUserContent(String userContent) {
+        this.userContent = userContent;
     }
 
     public Integer getUserId() {
