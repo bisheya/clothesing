@@ -3,7 +3,7 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzh.clothes.UserModule.UserMapper">
-    <!--æŸ¥è¯¢ç”¨æˆ· ç®¡ç†å‘˜ -->
+    <!--²éÑ¯ÓÃ»§ ¹ÜÀíÔ± -->
     <select id="queryUser" resultType="UserDo">
         select * from user
         <where>
@@ -18,17 +18,17 @@
 
     </select>
 
-    <!--æ’å…¥ç”¨æˆ· -->
+    <!--²åÈëÓÃ»§ -->
     <insert id="addUser" keyProperty="userId" useGeneratedKeys="true" parameterType="UserDo">
         insert into user(userName,userSex,userPhone,userAddress,userPass,userContent,userMoney,userAuth,userTradePass) values(#{userName},#{userSex},#{userPhone},#{userAddress},#{userPass},#{userContent},#{userMoney},#{userAuth},#{userTradePass})
     </insert>
 
-    <!--ç”¨æˆ·ç™»å½• -->
+    <!--ÓÃ»§µÇÂ¼ -->
     <select id="selectUser" resultType="UserDo">
         select * from user where userName = #{userName} and  userPass = #{userPass}
     </select>
 
-    <!--åˆ é™¤ç”¨æˆ· -->
+    <!--É¾³ýÓÃ»§ -->
     <delete id="deleteUser" parameterType="UserDo">
         delete  from  user where userName = #{userName}
     </delete>

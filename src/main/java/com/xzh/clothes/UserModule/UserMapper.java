@@ -10,23 +10,23 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
      /**
-      澧炲姞鐢ㄦ埛
+      增加用户
       */
      Integer addUser(UserDo userDo);
      /**
-      鏌ヨ鐢ㄦ埛
+      查询用户
       */
      List<UserDo> queryUser(@Param(value = "userName") String userName,@Param(value = "userPhone") String userPhone);
      /**
-      鍒犻櫎鐢ㄦ埛
+      删除用户
       */
      Integer deleteUser( String  userName );
      /**
-      鐢ㄦ埛鐧诲綍
+      用户登录
       */
      UserDo  selectUser(@Param(value = "userName") String userName,@Param(value = "userPass") String userPass);
      /**
-      鐢ㄦ埛淇敼淇℃伅
+      用户修改信息
       */
      Integer  updateUser(UserDo userDo);
 
