@@ -39,7 +39,7 @@ public class UserController {
         // 分页
         PageInfo<UserDo> userDoPageInfo = new PageInfo<>(userDos);
         Message message = new Message(0,"suceess",userDoPageInfo);
-        System.out.println(message);
+
         return message;
     }
 
@@ -47,7 +47,7 @@ public class UserController {
      用户注册
      */
     @RequestMapping(value = "/insertUser")
-    public Message insert(@RequestBody UserDo userDo){
+    public Message insertUser(@RequestBody UserDo userDo){
         Message message = new Message();
         Integer integer = 0;
         try{
@@ -97,7 +97,7 @@ public class UserController {
      用户删除
      */
     @RequestMapping(value = "/deleteUser")
-    public Message  selectUser(String userName){
+    public Message  deleteUser(String userName){
         Message message;
         Integer integer= userServiceImpl.deleteUser(userName);
         if (integer == 0){
@@ -111,7 +111,7 @@ public class UserController {
      用户修改
      */
     @RequestMapping(value = "/updeteUser")
-    public Message  updeteUser(UserDo userDo){
+    public Message  updeteUser(@RequestBody UserDo userDo){
         Message message;
         Integer integer = userServiceImpl.updateUser(userDo);
         if (integer == 0){
@@ -119,7 +119,7 @@ public class UserController {
         } else {
             message=new Message(0,"suceess",integer);
         }
-         
+
         return message;
     }
 

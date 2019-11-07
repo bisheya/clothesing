@@ -17,5 +17,5 @@ public interface UserService {
      List<UserDo> queryUser(String userName, String userPhone);
      Integer deleteUser(String userName);
      UserDo selectUser(String userName, String userPass);
-    Integer updateUser(UserDo userDo);
+     Integer updateUser(UserDo userDo);
 }
