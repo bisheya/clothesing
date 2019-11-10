@@ -20,7 +20,7 @@
     <insert id="insertCommodity" parameterType="CommodityDo">
                insert into commodity(commodityName,commodityImage,commodityPrice,commodityColor,
                                 commoditySize,commodityNum,commodityDesc,commodityDate,commodityBrand)
-                values(#{commodityName},#{commodityImage},#{commodityPrice},#{commodityColor},#{commoditySize},#{commodityNum}
+                values(#{commodityName},#{commodityImage,jdbcType=BLOB},#{commodityPrice},#{commodityColor},#{commoditySize},#{commodityNum}
                         ,#{commodityDesc},#{commodityDate},#{commodityBrand})
     </insert>
 
@@ -29,7 +29,7 @@
     </delete>
 
     <update id="updateCommodity"  parameterType="CommodityDo">
-        update  commodity  set commodityName= #{commodityName}, commodityImage= #{commodityImage},commodityPrice=#{commodityPrice},
+        update  commodity  set commodityName= #{commodityName}, commodityImage= #{commodityImage,jdbcType=BLOB},commodityPrice=#{commodityPrice},
                             commodityColor=#{commodityColor},commoditySize=#{commoditySize},commodityNum=#{commodityNum},
                             commodityDesc=#{commodityDesc},commodityBrand=#{commodityBrand}
     </update>

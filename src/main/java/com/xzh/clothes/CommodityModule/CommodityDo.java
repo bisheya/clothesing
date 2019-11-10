@@ -1,5 +1,7 @@
 package com.xzh.clothes.CommodityModule;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -7,7 +9,8 @@ import java.util.Date;
 public class CommodityDo implements Serializable {
     private int commodityId;
     private String commodityName;
-    private String commodityImage;
+
+    private byte[] commodityImage;
     private BigDecimal commodityPrice;
     private String commodityColor;
     private String commoditySize;
@@ -48,11 +51,11 @@ public class CommodityDo implements Serializable {
         this.commodityName = commodityName;
     }
 
-    public String getCommodityImage() {
+    public byte[] getCommodityImage() {
         return commodityImage;
     }
 
-    public void setCommodityImage(String commodityImage) {
+    public void setCommodityImage(byte[] commodityImage) {
         this.commodityImage = commodityImage;
     }
 

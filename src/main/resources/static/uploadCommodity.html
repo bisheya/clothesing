@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="layui-upload" id="file">
+    <div onclick="$('#fileLoad').click()" style="background-color: #c1c1c1;float: left;padding: 20px 11%;">
+        <img src="/images/1.png" width="50" height="50" id="myImg" />
+    </div>
+    <input type="file" id="fileLoad" style="display: none;"   @change="changImg(event)" style="border:none;text-align:left;"/>
+</div>
+<script src="/js/file.js"></script>
+</body>
+</html>

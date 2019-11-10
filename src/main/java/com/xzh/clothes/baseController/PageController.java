@@ -46,4 +46,9 @@ public class PageController {
         return "/index";
     }
 
+    @RequestMapping(value = "/file")
+    public String file(){
+        return "/uploadCommodity";
+    }
+
 }
