@@ -9,7 +9,6 @@ import java.util.Date;
 public class CommodityDo implements Serializable {
     private int commodityId;
     private String commodityName;
-
     private byte[] commodityImage;
     private BigDecimal commodityPrice;
     private String commodityColor;

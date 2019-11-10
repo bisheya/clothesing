@@ -17,4 +17,6 @@ public interface CommodityMapper {
     //插入
     Integer  insertCommodity (CommodityDo commodityDo);
 
+    List<CommodityDo> selectCommodityList (List<Integer> commodityIdList);
+
 }

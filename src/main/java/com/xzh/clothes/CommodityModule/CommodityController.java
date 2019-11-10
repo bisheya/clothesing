@@ -25,7 +25,6 @@ public class CommodityController {
                              @RequestParam(value = "size")Integer size){
 
         PageHelper.startPage(page,size);
-        System.out.println(commodityDo);
         int commodityId = 0;
         String commodityBrand = "";
         if(commodityDo!=null){
@@ -41,8 +40,6 @@ public class CommodityController {
 
     @RequestMapping(value = "/insertCommodity")
     public Message insertCommodity(@RequestParam(value = "file")MultipartFile file,CommodityDo commodityDo){
-
-
         Message message = new Message();
         Integer integer = 0;
         try{

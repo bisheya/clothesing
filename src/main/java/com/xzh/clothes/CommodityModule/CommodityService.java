@@ -10,5 +10,5 @@ public interface CommodityService {
     List<CommodityDo> queryCommodity(int commodityId , String commodityBrand);
     Integer deleteCommodity( int  commodityId );
     Integer  insertCommodity (CommodityDo commodityDo, MultipartFile file);
-
+    List<CommodityDo> selectCommodityList (List<Integer> commodityIdList);
 }

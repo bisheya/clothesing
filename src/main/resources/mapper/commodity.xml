@@ -33,4 +33,15 @@
                             commodityColor=#{commodityColor},commoditySize=#{commoditySize},commodityNum=#{commodityNum},
                             commodityDesc=#{commodityDesc},commodityBrand=#{commodityBrand}
     </update>
+
+    <select id="selectCommodityList" resultType="CommodityDo" parameterType="java.util.List">
+        select * from  commodity
+        <where>
+            commodityId in
+            <foreach collection="list" item="commodityIdList" index="index" open="(" separator="," close=")">
+                #{commodityIdList}
+            </foreach>
+        </where>
+    </select>
+
 </mapper>
