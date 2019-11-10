@@ -73,7 +73,7 @@ public class CommodityController {
         Integer integer = commodityServiceImpl.updateCommodity(commodityDo);
         message=new Message(integer==0?1:0,"success",integer);
 
-        return null;
+        return message;
     }
 
 }
