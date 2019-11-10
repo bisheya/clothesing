@@ -19,13 +19,20 @@ public class CommodityController {
     private CommodityService commodityServiceImpl;
 
     @RequestMapping(value = "/queryCommodity")
-    public Message queryCommodity(@RequestBody CommodityDo commodityDo, @RequestParam(value = "page" ) Integer page,
+    public Message queryCommodity(@RequestBody(required = false) CommodityDo commodityDo, @RequestParam(value = "page" ) Integer page,
                              @RequestParam(value = "size")Integer size){
 
         PageHelper.startPage(page,size);
-        List<CommodityDo> commodityDos = commodityServiceImpl.queryCommodity(commodityDo.getCommodityId(),commodityDo.getCommodityBrand());
+        System.out.println(commodityDo);
+        int commodityId = 0;
+        String commodityBrand = "";
+        if(commodityDo!=null){
+            commodityId = commodityDo.getCommodityId();
+            commodityBrand = commodityDo.getCommodityBrand();
+        }
+        List<CommodityDo> commodityDos = commodityServiceImpl.queryCommodity(commodityId,commodityBrand);
         PageInfo<CommodityDo> commodityDoPageInfo = new PageInfo<>(commodityDos);
-        Message message = new Message(0,"suceess",commodityDoPageInfo);
+        Message message = new Message(0,"success",commodityDoPageInfo);
 
         return message;
     }
@@ -55,11 +62,7 @@ public class CommodityController {
     public Message  deleteCommodity(int commodityId){
         Message message;
         Integer integer= commodityServiceImpl.deleteCommodity(commodityId);
-        if (integer == 0){
-            message=new Message(1,"suceess",integer);
-        } else {
-            message=new Message(0,"suceess",integer);
-        }
+        message=new Message(integer==0?1:0,"success",integer);
 
         return message;
     }
@@ -68,11 +71,7 @@ public class CommodityController {
     public Message  updeteUser(@RequestBody CommodityDo commodityDo){
         Message message;
         Integer integer = commodityServiceImpl.updateCommodity(commodityDo);
-        if (integer == 0){
-            message=new Message(1,"suceess",integer);
-        } else {
-            message=new Message(0,"suceess",integer);
-        }
+        message=new Message(integer==0?1:0,"success",integer);
 
         return null;
     }

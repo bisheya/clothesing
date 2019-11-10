@@ -7,7 +7,7 @@
         select * from commodity
         <where>
             1 = 1
-            <if test="commodityId!=null and commodityId!=''">
+            <if test="commodityId!=null and commodityId!=0">
                 and  commodityId = #{commodityId}
             </if>
             <if test="commodityBrand!=null and commodityBrand!=''">

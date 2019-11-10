@@ -49,12 +49,21 @@ public class UserController {
     @RequestMapping(value = "/insertUser")
     public Message insertUser(@RequestBody UserDo userDo){
         Message message = new Message();
+        userDo.setUserMoney(new BigDecimal(0));//设置钱
         Integer integer = 0;
         try{
             integer = userServiceImpl.addUser(userDo);
-            message.setMessage("success");
-            message.setState(0);
-            message.setData(integer);
+            if(integer!=0){
+                message.setMessage("success");
+                message.setState(0);
+                message.setData(integer);
+            }
+            else{
+                message.setMessage("注册失败！");
+                message.setState(1);
+                message.setData(integer);
+            }
+
         }catch (Exception e){
             String messageInfo = "";
             if(e.getMessage().contains("name")){
@@ -80,7 +89,7 @@ public class UserController {
     public Message  selectUser(@RequestBody UserDo userDo){
         Message message = new Message();
         UserDo selectUser = selectUser = userServiceImpl.selectUser(userDo.getUserName(),userDo.getUserPass());
-        if (selectUser == null){
+        if (selectUser != null){
             message.setMessage("success");
             message.setState(0);
             message.setData(selectUser);
