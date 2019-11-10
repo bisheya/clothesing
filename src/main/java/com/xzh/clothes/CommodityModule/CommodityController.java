@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -38,15 +40,18 @@ public class CommodityController {
     }
 
     @RequestMapping(value = "/insertCommodity")
-    public Message insertCommodity(@RequestBody CommodityDo commodityDo){
+    public Message insertCommodity(@RequestParam(value = "file")MultipartFile file,CommodityDo commodityDo){
+
+
         Message message = new Message();
         Integer integer = 0;
         try{
-            integer = commodityServiceImpl.insertCommodity(commodityDo);
+            integer = commodityServiceImpl.insertCommodity(commodityDo,file);
             message.setMessage("success");
             message.setState(0);
             message.setData(integer);
         } catch (Exception e){
+            System.out.println(e);
             String messageInfo = "未知异常 联系管理员";
             if(e.getMessage().contains("commodityId")){
                 messageInfo =  "商品编号重复";
@@ -58,6 +63,11 @@ public class CommodityController {
         return message;
     }
 
+    @RequestMapping(value = "/file")
+    public String file(@RequestParam(name = "file")MultipartFile file){
+        System.out.println(file);
+        return "sgw12";
+    }
     @RequestMapping(value = "/deleteCommodity")
     public Message  deleteCommodity(int commodityId){
         Message message;

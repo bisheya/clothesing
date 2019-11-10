@@ -27,6 +27,7 @@ spring:
     username: root
     password: Shen123..
     driver-class-name: com.mysql.jdbc.Driver
+    ConnectionTestQuery: SELECT 1
     # 使用druid数据源
 
 #  pagehelper.helper-dialect=MYSQL
