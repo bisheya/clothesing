@@ -1,5 +1,6 @@
 package com.xzh.clothes.CommodityModule;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
@@ -17,6 +18,9 @@ public class CommodityDo implements Serializable {
     private String commodityDesc;
     private Date  commodityDate;
     private String commodityBrand;
+    @TableField(exist = false)
+    private Integer num;
+
 
     @Override
     public String toString() {
@@ -112,5 +116,13 @@ public class CommodityDo implements Serializable {
 
     public void setCommodityBrand(String commodityBrand) {
         this.commodityBrand = commodityBrand;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
     }
 }

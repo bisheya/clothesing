@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class ShopCarDo implements Serializable {
     private int  userId;
     private int shopList;
+    private Integer num;
 
     @Override
     public String toString() {
-        return "shopCarDo{" +
+        return "ShopCarDo{" +
                 "userId=" + userId +
-                ", shopList='" + shopList + '\'' +
+                ", shopList=" + shopList +
+                ", num=" + num +
                 '}';
     }
 
@@ -29,4 +31,13 @@ public class ShopCarDo implements Serializable {
     public void setShopList(int shopList) {
         this.shopList = shopList;
     }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
 }

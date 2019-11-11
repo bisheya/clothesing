@@ -3,13 +3,13 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzh.clothes.shopCarModule.ShopCarMapper">
-    <select id="queryShopList" resultType="shopCarDo">
-        select shopList from shopCar where userId = #{userId}
+    <select id="queryShopList" parameterType="int" resultType="int">
+        select shopList from shopCar where userId = #{value}
     </select>
 
     <insert id="insertShopList" parameterType="shopCarDo">
-               insert into shopCar(userId,shopList)
-                values(#{userId},#{shopList})
+               insert into shopCar(userId,shopList,num)
+                values(#{userId},#{shopList},#{num})
     </insert>
 
     <delete id="deleteShopList"  parameterType="shopCarDo">
