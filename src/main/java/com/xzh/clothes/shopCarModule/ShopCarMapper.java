@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ShopCarMapper {
 
-    List<Integer> queryShopList (int userId);
+    List<Integer> queryShopList (@Param(value = "userId") int userId);
 
-    Integer deleteShopList( int  userId , int shopList );
+    Integer deleteShopList(@Param(value = "userId") int  userId ,@Param(value = "shopList") int shopList );
 
     Integer  insertCommodity (ShopCarDo shopCarDo );
 }

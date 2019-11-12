@@ -24,14 +24,14 @@
                         ,#{commodityDesc},#{commodityDate},#{commodityBrand})
     </insert>
 
-    <delete id="deleteCommodity"  parameterType="CommodityDo">
+    <delete id="deleteCommodity" >
         delete  from  commodity where commodityId = #{commodityId}
     </delete>
 
     <update id="updateCommodity"  parameterType="CommodityDo">
         update  commodity  set commodityName= #{commodityName}, commodityImage= #{commodityImage,jdbcType=BLOB},commodityPrice=#{commodityPrice},
                             commodityColor=#{commodityColor},commoditySize=#{commoditySize},commodityNum=#{commodityNum},
-                            commodityDesc=#{commodityDesc},commodityBrand=#{commodityBrand}
+                            commodityDesc=#{commodityDesc},commodityBrand=#{commodityBrand} where commodityId=#{commodityId}
     </update>
 
     <select id="selectCommodityList" resultType="CommodityDo" parameterType="java.util.List">

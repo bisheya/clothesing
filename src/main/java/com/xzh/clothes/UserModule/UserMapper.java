@@ -19,7 +19,7 @@ public interface UserMapper {
      /**
       删除用户
       */
-     Integer deleteUser( String  userName );
+     Integer deleteUser(@Param(value = "userName") String  userName );
      /**
       用户登录
       */
