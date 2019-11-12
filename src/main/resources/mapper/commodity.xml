@@ -35,9 +35,11 @@
     </update>
 
     <select id="selectCommodityList" resultType="CommodityDo" parameterType="java.util.List">
-        select * from  commodity
+        select  c.commodityId,c.commodityName,c.commodityImage,c.commodityPrice,c.commodityColor,c.commoditySize,
+        c.commodityNum,c.commodityDesc,c.commodityDate,c.commodityBrand,s.num
+         from  commodity c ,shopCar s
         <where>
-            commodityId in
+            c.commodityId = s.shopList     and  commodityId in
             <foreach collection="list" item="commodityIdList" index="index" open="(" separator="," close=")">
                 #{commodityIdList}
             </foreach>

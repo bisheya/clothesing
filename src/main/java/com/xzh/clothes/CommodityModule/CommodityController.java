@@ -66,7 +66,7 @@ public class CommodityController {
         return "sgw12";
     }
     @RequestMapping(value = "/deleteCommodity")
-    public Message  deleteCommodity(int commodityId){
+    public Message  deleteCommodity(@RequestParam(value = "commodityId" )int commodityId){
         Message message;
         Integer integer= commodityServiceImpl.deleteCommodity(commodityId);
         message=new Message(integer==0?1:0,"success",integer);

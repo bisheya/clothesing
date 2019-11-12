@@ -21,13 +21,13 @@ public class ShopCarController {
     private ShopCarService shopCarServiceImpl;
 
     @RequestMapping(value = "/queryShopCar")
-    public Message queryShopCar(int  userId, @RequestParam(value = "page" ) Integer page,
+    public Message queryShopCar(@RequestParam(value = "userId" )int  userId, @RequestParam(value = "page" ) Integer page,
                                   @RequestParam(value = "size")Integer size){
         PageHelper.startPage(page,size);
         int commodityId = 0;
         String commodityBrand = "";
         Message message;
-        if(userId != 0){
+        if(userId == 0){
             message = new Message(1,"success","用户id为空");
         } else {
             List<CommodityDo> commodityDos = shopCarServiceImpl.queryShopList(userId);

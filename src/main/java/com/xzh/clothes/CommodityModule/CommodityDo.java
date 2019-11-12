@@ -1,6 +1,5 @@
 package com.xzh.clothes.CommodityModule;
 
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.Transient;
@@ -19,6 +18,9 @@ public class CommodityDo implements Serializable {
     private String commodityDesc;
     private Date  commodityDate;
     private String commodityBrand;
+    @TableField(exist = false)
+    private Integer num;
+
 
     @Override
     public String toString() {
@@ -114,5 +116,13 @@ public class CommodityDo implements Serializable {
 
     public void setCommodityBrand(String commodityBrand) {
         this.commodityBrand = commodityBrand;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
     }
 }

@@ -17,7 +17,9 @@ public class ShopCarServiceImpl implements ShopCarService {
 
     @Override
     public List<CommodityDo> queryShopList(int userId) {
+
         List<Integer> commodityIdList = shopCarMapper.queryShopList(userId);
+        System.out.println(commodityIdList);
         return commodityMapper.selectCommodityList(commodityIdList);
     }
 
