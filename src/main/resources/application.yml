@@ -14,8 +14,6 @@ mybatis:
   typeAliasesPackage: com.xzh.clothes
   mapperLocations: classpath:mapper/*.xml
 
-
-
 ---
 
 #开发配置
@@ -23,7 +21,7 @@ spring:
   profiles: dev
 
   datasource:
-    url: jdbc:mysql://120.79.85.238:3306/clothing
+    url: jdbc:mysql://120.79.85.238:3306/clothing?userUnicode=true&characterEncoding=utf8
     username: root
     password: Shen123..
     driver-class-name: com.mysql.jdbc.Driver

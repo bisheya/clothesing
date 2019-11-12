@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/xadmin.css">
+    <link rel="stylesheet" type="text/css" href="../lib/layui/css/layui.css">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/uploadCommodity.css">
+
+</head>
+<body>
+
+<div class="commodityInfo" id="file">
+    <div class="row">
+        <span>商品标题：</span><input type="text" v-model="CommodityDo.commodityName" placeholder="商品标题">
+    </div>
+    <div class="row">
+        <span style="float: left">尺码选择：</span>
+        <select style="width: 45%;margin-left:2%;padding-left:0px;height: 20px;float: left;" v-model="CommodityDo.commoditySize">
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>XXXL</option>
+            <option>XXXXL</option>
+        </select>
+    </div>
+    <div class="row">
+        <span style="float: left">种类选择：</span>
+        <select style="width: 45%;margin-left:2%;padding-left:0px;height: 20px;float: left;" v-model="CommodityDo.commodityBrand">
+            <option>男装</option>
+            <option>女装</option>
+            <option>婴儿</option>
+            <option>老年人</option>
+        </select>
+    </div>
+    <div class="row">
+        <span>商品颜色：</span><input v-model="CommodityDo.commodityColor" type="text" placeholder="商品颜色">
+    </div>
+    <div class="row">
+        <span>库存数量：</span><input v-model="CommodityDo.commodityNum" type="text" placeholder="数量">
+    </div>
+    <div class="row">
+        <span>商品图片：</span>
+        <div class="layui-upload"  style="float: left;width: 70%;margin-left: 2%;">
+            <div onclick="$('#fileLoad').click()" style="background-color: #c1c1c1;float: left;padding: 20px 11%;">
+                <img src="../images/fileUp.png" width="60" height="60" id="myImg" />
+            </div>
+            <input type="file" id="fileLoad" style="display: none;"   @change="changImg(event)" style="border:none;text-align:left;"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <span>商品描述：</span><textarea v-model="CommodityDo.commodityDesc" style="float: left;margin-left: 2%;width: 70%;height: 100px;font-size: 12px;"></textarea>
+    </div>
+    <div class="row" style="margin-top: 10%">
+        <button class="layui-btn" style="float: left;margin-left: 6%" @click="submitCommodity()">
+            <i class="layui-icon"></i>添加
+        </button>
+        <button @click="reset()"  class="layui-btn" style="float: left;margin-left: 30%;background: #fff;color: #333;border: 1px solid #333">
+            <i class="layui-icon"></i>重置
+        </button>
+
+    </div>
+</div>
+
+<script src="../js/file.js"></script>
+</body>
+</html>

@@ -1,7 +1,9 @@
 package com.xzh.clothes.CommodityModule;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.beans.Transient;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;

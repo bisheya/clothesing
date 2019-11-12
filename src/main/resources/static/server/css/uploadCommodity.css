@@ -1,0 +1,22 @@
+.commodityInfo{
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 100%;
+    margin-top: 80px;
+}
+.commodityInfo .row{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+.commodityInfo .row span{
+    float: left;
+}
+.commodityInfo .row input{
+    float: left;
+    margin-left: 2%;
+    clear: right;
+}
+

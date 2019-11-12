@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 @Service
 public class CommodityServiceImpl implements CommodityService {
@@ -30,6 +31,8 @@ public class CommodityServiceImpl implements CommodityService {
     public Integer insertCommodity(CommodityDo commodityDo, MultipartFile file) {
         try{
             commodityDo.setCommodityImage(file.getBytes());
+            commodityDo.setCommodityDate(new Date());
+            System.out.println(commodityDo);
         }catch (IOException e){
             System.out.println(e);
             return 0;
