@@ -44,4 +44,9 @@ public class CommodityServiceImpl implements CommodityService {
     public List<CommodityDo> selectCommodityList(List<Integer> commodityIdList) {
         return commodityMapper.selectCommodityList(commodityIdList);
     }
+
+    @Override
+    public Integer updateNum(CommodityDo commodityDo) {
+        return commodityMapper.updateNum(commodityDo);
+    }
 }

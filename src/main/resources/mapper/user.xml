@@ -8,11 +8,11 @@
         select * from user
         <where>
             1 = 1
-            <if test="userName!=null and userName!=''">
-                and  userName = #{userName}
+            <if test="userName!='' and userName!=null">
+                and userName like '%${userName}%'
             </if>
-            <if test="userPhone!=null and userPhone!=''">
-                and  userPhone = #{userPhone}
+            <if test="beginTime!='' and beginTime!=null and endTime!='' and endTime!=null">
+                and userBirthday >= #{beginTime} and #{endTime} >= userBirthday
             </if>
         </where>
 
@@ -20,12 +20,13 @@
 
     <!--�����û� -->
     <insert id="addUser" keyProperty="userId" useGeneratedKeys="true" parameterType="UserDo">
-        insert into user(userName,userSex,userPhone,userAddress,userPass,userContent,userMoney,userAuth,userTradePass) values(#{userName},#{userSex},#{userPhone},#{userAddress},#{userPass},#{userContent},#{userMoney},#{userAuth},#{userTradePass})
+        insert into user(userName,userSex,userPhone,userAddress,userPass,userContent,userMoney,userAuth,userTradePass,userBirthday,userEmail) values(#{userName},#{userSex},#{userPhone},#{userAddress},#{userPass},#{userContent},#{userMoney},#{userAuth},#{userTradePass},#{userBirthday},#{userEmail})
     </insert>
 
     <!--�û���¼ -->
     <select id="selectUser" resultType="UserDo">
-        select * from user where userName = #{userName} and  userPass = #{userPass}
+        select * from user where userName = #{userName} and userPass = #{userPass}
+
     </select>
 
     <!--ɾ���û� -->
@@ -35,7 +36,13 @@
 
     <update id="updateUser" parameterType="UserDo">
         update  user  set  userSex= #{userSex}, userAddress= #{userAddress},userConte=#{userConte},
-                            userMoney=#{userMoney},userAuth=#{userAuth},userTradePass=#{userTradePass} where userName = #{userName}
+                            userMoney=#{userMoney},userAuth=#{userAuth},userTradePass=#{userTradePass},
+                            userBirthday=#{userBirthday},userEmail=#{userEmail} where userName = #{userName}
+    </update>
+
+    <update id="updateBirthday" parameterType="UserDo">
+        update  user  set userBirthday=userBirthday + #{userBirthday}
+                where userName = #{userName}
     </update>
 
 </mapper>

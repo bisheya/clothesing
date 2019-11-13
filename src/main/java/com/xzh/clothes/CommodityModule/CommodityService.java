@@ -11,4 +11,5 @@ public interface CommodityService {
     Integer deleteCommodity( int  commodityId );
     Integer  insertCommodity (CommodityDo commodityDo, MultipartFile file);
     List<CommodityDo> selectCommodityList (List<Integer> commodityIdList);
+    Integer  updateNum (CommodityDo commodityDo);
 }

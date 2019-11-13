@@ -1,5 +1,6 @@
 package com.xzh.clothes.CommodityModule;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.beans.Transient;

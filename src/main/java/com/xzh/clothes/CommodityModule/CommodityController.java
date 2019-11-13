@@ -21,10 +21,8 @@ public class CommodityController {
     private CommodityService commodityServiceImpl;
 
     @RequestMapping(value = "/queryCommodity")
-    public Message queryCommodity(@RequestBody(required = false) CommodityDo commodityDo, @RequestParam(value = "page" ) Integer page,
-                             @RequestParam(value = "size")Integer size){
-
-        PageHelper.startPage(page,size);
+    public Message queryCommodity(@RequestBody(required = false) CommodityDo commodityDo,@RequestParam(value = "page",required = false) Integer page, @RequestParam(value = "size",required = false)Integer size){
+         PageHelper.startPage(page,size);
         int commodityId = 0;
         String commodityBrand = "";
         if(commodityDo!=null){
@@ -33,6 +31,7 @@ public class CommodityController {
         }
         List<CommodityDo> commodityDos = commodityServiceImpl.queryCommodity(commodityId,commodityBrand);
         PageInfo<CommodityDo> commodityDoPageInfo = new PageInfo<>(commodityDos);
+
         Message message = new Message(0,"success",commodityDoPageInfo);
 
         return message;

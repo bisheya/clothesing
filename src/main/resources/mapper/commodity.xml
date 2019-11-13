@@ -34,6 +34,10 @@
                             commodityDesc=#{commodityDesc},commodityBrand=#{commodityBrand} where commodityId=#{commodityId}
     </update>
 
+    <update id="updateNum"  parameterType="CommodityDo">
+            update  commodity  set commodityNum=commodityNum + #{commodityNum} where commodityId=#{commodityId}
+    </update>
+
     <select id="selectCommodityList" resultType="CommodityDo" parameterType="java.util.List">
         select  c.commodityId,c.commodityName,c.commodityImage,c.commodityPrice,c.commodityColor,c.commoditySize,
         c.commodityNum,c.commodityDesc,c.commodityDate,c.commodityBrand,s.num

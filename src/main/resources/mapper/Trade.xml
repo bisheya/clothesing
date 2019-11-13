@@ -30,7 +30,7 @@
         delete  from  trade where tradeId = #{tradeId} and tradeState != 3
     </delete>
 
-    <update id="updateTrade">
+    <update id="updateTrade" parameterType="TradeDo">
         update  trade  set  tradeState=#{tradeState} where tradeId=#{tradeId}
     </update>
 

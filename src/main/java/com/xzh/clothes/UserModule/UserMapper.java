@@ -4,30 +4,32 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
 public interface UserMapper {
      /**
-      Ôö¼ÓÓÃ»§
+      ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
       */
      Integer addUser(UserDo userDo);
      /**
-      ²éÑ¯ÓÃ»§
+      ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½
       */
-     List<UserDo> queryUser(@Param(value = "userName") String userName,@Param(value = "userPhone") String userPhone);
+     List<UserDo> queryUser(@Param(value = "userName") String userName,@Param(value = "beginTime") Date beginTime,@Param(value = "endTime") Date endTime);
      /**
-      É¾³ýÓÃ»§
+      É¾ï¿½ï¿½ï¿½Ã»ï¿½
       */
      Integer deleteUser(@Param(value = "userName") String  userName );
      /**
-      ÓÃ»§µÇÂ¼
+      ï¿½Ã»ï¿½ï¿½ï¿½Â¼
       */
      UserDo  selectUser(@Param(value = "userName") String userName,@Param(value = "userPass") String userPass);
      /**
-      ÓÃ»§ÐÞ¸ÄÐÅÏ¢
+      ï¿½Ã»ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½Ï¢
       */
      Integer  updateUser(UserDo userDo);
 
+     Integer  updateBirthday(UserDo userDo);
 
 }

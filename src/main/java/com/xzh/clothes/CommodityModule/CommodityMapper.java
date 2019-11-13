@@ -16,7 +16,7 @@ public interface CommodityMapper {
     Integer deleteCommodity(@Param(value = "commodityId") int  commodityId );
     //插入
     Integer  insertCommodity (CommodityDo commodityDo);
-
     List<CommodityDo> selectCommodityList (List<Integer> commodityIdList);
+    Integer  updateNum (CommodityDo commodityDo);
 
 }

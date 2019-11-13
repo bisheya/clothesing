@@ -1,7 +1,10 @@
 package com.xzh.clothes.UserModule;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author ：xiaonuolen
@@ -21,6 +24,9 @@ public class UserDo  implements Serializable {
     private String userAuth;
     private String userTradePass;
     private String userContent;
+    private Date userBirthday;
+    private String userEmail;
+
 
     @Override
     public String toString() {
@@ -35,7 +41,26 @@ public class UserDo  implements Serializable {
                 ", userAuth='" + userAuth + '\'' +
                 ", userTradePass='" + userTradePass + '\'' +
                 ", userContent='" + userContent + '\'' +
+                ", userBirthday=" + userBirthday +
+                ", userEmail='" + userEmail + '\'' +
                 '}';
+    }
+
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    public Date getUserBirthday() {
+        return userBirthday;
+    }
+
+    public void setUserBirthday(Date userBirthday) {
+        this.userBirthday = userBirthday;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getUserContent() {

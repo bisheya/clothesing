@@ -1,9 +1,11 @@
 package com.xzh.clothes.Trade;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface TradeMapper {
 
     Integer addTrade(TradeDo tradeDo);
@@ -12,7 +14,7 @@ public interface TradeMapper {
 
     Integer deleteTrade( @Param(value = "tradeId") String  tradeId );
 
-    Integer  updateTrade(@Param(value = "userId") int userId ,@Param(value = "tradeState") int tradeState );
+    Integer  updateTrade(TradeDo tradeDo);
 
 
 }
