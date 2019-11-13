@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzh.clothes.Trade.TradeMapper">
+
+    <select id="queryTrade" resultType="TradeDo">
+        select * from trade
+        <where>
+            1 = 1
+            <if test="userId!=null and userId!=''">
+                and  userId = #{userId}
+            </if>
+            <if test="tradeState!=null and tradeState!=''">
+                and  tradeState = #{tradeState}
+            </if>
+        </where>
+
+    </select>
+
+    <!--�����û� -->
+    <insert id="addTrade" keyProperty="tradeId" useGeneratedKeys="true" parameterType="TradeDo">
+        insert into trade(tradeId,userId,tradeDate,tradeMoney,tradeAddress,shopList,tradeState)
+                        values(#{tradeId},#{userId},#{tradeDate},#{tradeMoney},#{tradeAddress},
+                                #{shopList},#{tradeState})
+    </insert>
+
+    <!--ɾ���û� -->
+    <delete id="deleteTrade">
+        delete  from  trade where tradeId = #{tradeId} and tradeState != 3
+    </delete>
+
+    <update id="updateTrade">
+        update  trade  set  tradeState=#{tradeState} where tradeId=#{tradeId}
+    </update>
+
+</mapper>

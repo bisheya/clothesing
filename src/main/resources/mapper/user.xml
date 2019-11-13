@@ -30,7 +30,7 @@
     </select>
 
     <!--ɾ���û� -->
-    <delete id="deleteUser" parameterType="UserDo">
+    <delete id="deleteUser" >
         delete  from  user where userName = #{userName}
     </delete>
 

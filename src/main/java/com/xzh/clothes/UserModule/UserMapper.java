@@ -20,7 +20,7 @@ public interface UserMapper {
      /**
       ɾ���û�
       */
-     Integer deleteUser( String  userName );
+     Integer deleteUser(@Param(value = "userName") String  userName );
      /**
       �û���¼
       */

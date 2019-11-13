@@ -13,7 +13,7 @@ public interface CommodityMapper {
     //查询
     List<CommodityDo> queryCommodity (@Param(value = "commodityId") int commodityId, @Param(value = "commodityBrand") String commodityBrand);
     //删除
-    Integer deleteCommodity( int  commodityId );
+    Integer deleteCommodity(@Param(value = "commodityId") int  commodityId );
     //插入
     Integer  insertCommodity (CommodityDo commodityDo);
 

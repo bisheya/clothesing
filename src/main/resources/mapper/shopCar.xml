@@ -3,7 +3,8 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xzh.clothes.shopCarModule.ShopCarMapper">
-    <select id="queryShopList" parameterType="int" resultType="int">
+    <!-- queryShopList resultType int 还是 list 有待测试  -->
+    <select id="queryShopList"  resultType="int">
         select shopList from shopCar where userId = #{value}
     </select>
 
@@ -12,7 +13,7 @@
                 values(#{userId},#{shopList},#{num})
     </insert>
 
-    <delete id="deleteShopList"  parameterType="shopCarDo">
+    <delete id="deleteShopList" >
         delete  from  shopCar where userId = #{userId} and shopList = #{shopList}
     </delete>
 
