@@ -14,13 +14,13 @@ new Vue({
     },
     methods: {
         /*获取图片路径，加上前缀否则不显示*/
-        getImg(url) {
+        getImg:function(url) {
             if (url.indexOf("data:image/jpeg;base64") < 0) {
                 return "data:image/jpeg;base64," + url
             }
             return url;
         },
-        submitCommodity(){
+        submitCommodity:function(){
             var that = this;
             $.ajax({
                 url: '/commodity/insertCommodity',
@@ -46,11 +46,11 @@ new Vue({
                 }
             })
         },
-        reset(){
+        reset:function(){
           this.CommodityDo = {};
           $("#myImg").attr("src", "../images/fileUp.png");
         },
-        changImg(e) {
+        changImg:function(e) {
             var blobData;
             var that = this;
             for (var i = 0; i < e.target.files.length; i++) {
@@ -82,7 +82,7 @@ new Vue({
 
 
         },
-        getBob(base64Data) {
+        getBob:function(base64Data) {
             //console.log(base64Data);//data:image/png;base64,
             var byteString;
             if (base64Data.split(',')[0].indexOf('base64') >= 0)
