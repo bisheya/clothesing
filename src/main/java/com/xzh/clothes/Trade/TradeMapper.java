@@ -12,7 +12,7 @@ public interface TradeMapper {
 
     List<TradeDo> queryTrade(@Param(value = "userId") int userId, @Param(value = "tradeState") int tradeState);
 
-    Integer deleteTrade( @Param(value = "tradeId") String  tradeId );
+    Integer deleteTrade( TradeDo tradeDo);
 
     Integer  updateTrade(TradeDo tradeDo);
 
