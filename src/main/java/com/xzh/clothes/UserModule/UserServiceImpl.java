@@ -4,6 +4,7 @@ import com.xzh.clothes.command.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,8 +26,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<UserDo> queryUser(String userName, String userPhone){
-        return userMapper.queryUser(userName,userPhone);
+    public List<UserDo> queryUser(String userName, Date beginTime, Date endTime){
+        return userMapper.queryUser(userName,beginTime,endTime);
     }
 
     @Override

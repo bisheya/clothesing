@@ -511,7 +511,8 @@ xblock{
 
 .welcome-footer{padding: 30px 0; line-height: 30px; text-align: center; background-color: #eee; color: #666; font-weight: 300;}
 body .layui-layout-admin .footer-demo{height: auto; padding: 15px 0; line-height: 26px;}
-.welcome-footer a{padding: 0 5px;}
+.welcome-footer a{
+    padding: 0 5px;}
 
 table th, table td {
     word-break: break-all;

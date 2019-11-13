@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.MalformedParameterizedTypeException;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,15 +32,18 @@ public class UserController {
      查询所有用户或个别用户
      */
     @RequestMapping(value = "/queryUser")
-    public Message queryUser(@RequestBody UserDo userDo, @RequestParam(value = "page" ) Integer page,
-                             @RequestParam(value = "size")Integer size){
-
+    public Message queryUser(@RequestParam(value = "userName",required = false) String userName,
+                             @RequestParam(value = "page") Integer page,
+                             @RequestParam(value = "size")Integer size,
+                             @RequestParam(value = "beginTime",required = false) Date beginTime,
+                             @RequestParam(value = "endTime",required = false) Date endTime){
+        //
         PageHelper.startPage(page,size);
-        List<UserDo> userDos = userServiceImpl.queryUser(userDo.getUserName(), userDo.getUserPhone());
+        List<UserDo> userDos = userServiceImpl.queryUser(userName, beginTime ,endTime);
         // 分页
         PageInfo<UserDo> userDoPageInfo = new PageInfo<>(userDos);
-        Message message = new Message(0,"suceess",userDoPageInfo);
-
+        Message message = new Message(0,"success",userDoPageInfo);
+        System.out.println(message);
         return message;
     }
 
